@@ -1,12 +1,14 @@
 import { QueryClient, QueryClientProvider } from "react-query";
+import Welcome from "./components/Welcome";
+import Header from "./components/Header";
 
 export const queryClient = new QueryClient();
 
 function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
-      <h2 className="text-sm bg-red-700">Vite</h2>
+      <Header />
+      <Welcome />
     </QueryClientProvider>
   );
 }
