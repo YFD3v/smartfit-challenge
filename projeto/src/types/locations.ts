@@ -8,6 +8,10 @@ export interface LocationParams {
   title: string;
   opened: boolean;
   content: string;
+  street?: string;
+  region?: string;
+  city_name?: string;
+  uf?: string;
   mask: "required" | "recommended";
   towel: "required" | "recommended";
   fountain: "not_allowed" | "partial";
