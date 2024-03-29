@@ -5,21 +5,28 @@ interface LocationItemProps {
 }
 
 const LocationItem = ({ location }: LocationItemProps) => {
-  console.log(location.region);
+  let locationVerified = location.hasOwnProperty("opened");
+  console.log(locationVerified);
   return (
     <div className="p-5 bg-gray-100 rounded-lg">
-      {location.opened ? (
-        <p className="text-brand-green font-medium">Aberto</p>
+      {locationVerified ? (
+        <p
+          className={
+            location.opened
+              ? "text-brand-green font-medium"
+              : "text-brand-red font-medium"
+          }
+        >
+          {location.opened ? "Aberto" : "Fechado"}
+        </p>
       ) : (
-        <p className="text-brand-red font-medium"> Fechado</p>
+        <p className="text-brand-yellow">Sem informação</p>
       )}
+
       <h2 className="text-xl font-semibold my-2">{location.title}</h2>
 
       <div className="text-brand-lightGrey">
-        {location.region !== undefined &&
-        location.city_name !== undefined &&
-        location.uf !== undefined &&
-        location.street !== undefined ? (
+        {!locationVerified ? (
           <p>{`${location.street} - ${location.region} \n ${location.city_name} - ${location.uf}`}</p>
         ) : (
           <div dangerouslySetInnerHTML={{ __html: location.content }}></div>
