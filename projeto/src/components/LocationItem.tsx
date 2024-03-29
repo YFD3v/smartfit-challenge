@@ -6,9 +6,8 @@ interface LocationItemProps {
 
 const LocationItem = ({ location }: LocationItemProps) => {
   let locationVerified = location.hasOwnProperty("opened");
-  console.log(locationVerified);
   return (
-    <div className="p-5 bg-gray-100 rounded-lg">
+    <div className=" h-full flex flex-col p-5 bg-gray-100 rounded-lg border-r-white border-r-4">
       {locationVerified ? (
         <p
           className={
